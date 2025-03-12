@@ -37,7 +37,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function Component({ data }) {
+export function Component({data}: any) {
   // If no data is provided, use a default empty dataset
   const chartData = data || [];
 
@@ -104,7 +104,7 @@ export function Component({ data }) {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Peak drinking at {chartData.length > 0 ? chartData.find(d => d.scale === 3)?.drinkstatus || '-' : '-'}
+          Peak drinking at {chartData.length > 0 ? chartData.find((d: { scale: number }) => d.scale === 3)?.drinkstatus || '-' : '-'}
         </div>
         <div className="leading-none text-muted-foreground">
           Showing projected drinking window based on wine characteristics
